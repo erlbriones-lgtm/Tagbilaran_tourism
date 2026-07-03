@@ -50,10 +50,10 @@ export default function Navbar({ activeView, setActiveView }: NavbarProps) {
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-80 transition-all duration-300 ${
           isScrolled || isOpen
-            ? "bg-gradient-to-r from-[#2ee59d]/95 via-[#38B000]/95 to-[#006400]/95 backdrop-blur-md border-b border-[#32e875]/40 py-1.5 sm:py-2 shadow-lg"
-            : "bg-gradient-to-r from-[#2ee59d]/85 via-[#38B000]/80 to-[#006400]/85 backdrop-blur-sm border-b border-[#32e875]/25 py-2 sm:py-2.5"
+            ? "bg-linear-to-r from-[#2ee59d]/95 via-[#38B000]/95 to-[#006400]/95 backdrop-blur-md border-b border-[#32e875]/40 py-1.5 sm:py-2 shadow-lg"
+            : "bg-linear-to-r from-[#2ee59d]/85 via-[#38B000]/80 to-[#006400]/85 backdrop-blur-sm border-b border-[#32e875]/25 py-2 sm:py-2.5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between relative w-full h-8 sm:h-9">
@@ -185,7 +185,7 @@ export default function Navbar({ activeView, setActiveView }: NavbarProps) {
           </div>
 
           {/* Mobile Layout (centered logo with burger on the right) */}
-          <div className="flex xl:hidden items-center justify-between w-full h-full relative z-[81]">
+          <div className="flex xl:hidden items-center justify-between w-full h-full relative z-81">
             {/* Left spacing placeholder to visually balance the menu button on the right */}
             <div className="w-8" />
 
@@ -234,7 +234,7 @@ export default function Navbar({ activeView, setActiveView }: NavbarProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-[78] bg-black/40 backdrop-blur-xs xl:hidden"
+              className="fixed inset-0 z-78 bg-black/40 backdrop-blur-xs xl:hidden"
             />
 
             {/* Slide-out Sidebar Drawer on the right side */}
@@ -243,7 +243,7 @@ export default function Navbar({ activeView, setActiveView }: NavbarProps) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 180 }}
-              className="fixed inset-y-0 right-0 z-[79] w-[240px] sm:w-[280px] h-full bg-gradient-to-b from-[#2ee59d]/98 via-[#38B000]/98 to-[#006400]/98 backdrop-blur-2xl flex flex-col justify-start overflow-y-auto px-6 sm:px-8 pt-28 pb-12 xl:hidden border-l border-white/10 shadow-2xl"
+              className="fixed inset-y-0 right-0 z-79 w-60 sm:w-70 h-full bg-linear-to-b from-[#2ee59d]/98 via-[#38B000]/98 to-[#006400]/98 backdrop-blur-2xl flex flex-col justify-start overflow-hidden overscroll-contain px-6 sm:px-8 pt-28 pb-12 xl:hidden border-l border-white/10 shadow-2xl"
               id="mobile-drawer-overlay"
             >
               {/* Soft decorative background circles matching brand layout */}
@@ -267,7 +267,7 @@ export default function Navbar({ activeView, setActiveView }: NavbarProps) {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: lIdx * 0.08 }}
                     onClick={() => handleNavClick(link.view as any)}
-                    className={`text-left w-full font-jakarta text-xl sm:text-2xl font-black tracking-wide uppercase transition-all py-1.5 cursor-pointer hover:translate-x-[6px] flex items-center justify-start gap-4 group hover:text-[#FFD54F] ${
+                    className={`text-left w-full font-jakarta text-xl sm:text-2xl font-black tracking-wide uppercase transition-all py-1.5 cursor-pointer hover:translate-x-1.5 flex items-center justify-start gap-4 group hover:text-[#FFD54F] ${
                       activeView === link.view ? "text-[#FFD54F]" : "text-white/80"
                     }`}
                   >
