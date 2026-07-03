@@ -3,10 +3,7 @@
 
 @font-face {
   font-family: 'Valonik';
-  src: url('/font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('/Font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('./Font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('/font/ValonikPersonalUse-Bold.otf');
+  src: local('Playfair Display');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,10 +11,7 @@
 
 @font-face {
   font-family: 'Valonik';
-  src: url('/font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('/Font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('./Font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('/font/ValonikPersonalUse-Bold.otf');
+  src: local('Playfair Display');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -25,10 +19,7 @@
 
 @font-face {
   font-family: 'Valonik';
-  src: url('/font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('/Font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('./Font/ValonikPersonalUse-Bold.otf') format('opentype'),
-       url('/font/ValonikPersonalUse-Bold.otf');
+  src: local('Playfair Display');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -36,10 +27,7 @@
 
 @font-face {
   font-family: 'Comic Helvetic';
-  src: url('/font/ComicHelvetic_Light.otf') format('opentype'),
-       url('/Font/ComicHelvetic_Light.otf') format('opentype'),
-       url('./Font/ComicHelvetic_Light.otf') format('opentype'),
-       url('/font/ComicHelvetic_Light.otf');
+  src: local('Comic Sans MS');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -47,10 +35,7 @@
 
 @font-face {
   font-family: 'Cranio';
-  src: url('/FONT/cranio/Cranio.otf') format('opentype'),
-       url('/font/cranio/Cranio.otf') format('opentype'),
-       url('/public/FONT/cranio/Cranio.otf') format('opentype'),
-       url('./FONT/cranio/Cranio.otf') format('opentype');
+  src: url('/FONT/cranio/Cranio.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -58,10 +43,7 @@
 
 @font-face {
   font-family: 'Cranio';
-  src: url('/FONT/cranio/Cranio.otf') format('opentype'),
-       url('/font/cranio/Cranio.otf') format('opentype'),
-       url('/public/FONT/cranio/Cranio.otf') format('opentype'),
-       url('./FONT/cranio/Cranio.otf') format('opentype');
+  src: url('/FONT/cranio/Cranio.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -69,10 +51,7 @@
 
 @font-face {
   font-family: 'Moderniz';
-  src: url('/Font/Moderniz.otf') format('opentype'),
-       url('/public/Font/Moderniz.otf') format('opentype'),
-       url('./Font/Moderniz.otf') format('opentype'),
-       url('/font/Moderniz.otf') format('opentype');
+  src: local('Plus Jakarta Sans');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -80,10 +59,7 @@
 
 @font-face {
   font-family: 'Moderniz';
-  src: url('/Font/Moderniz.otf') format('opentype'),
-       url('/public/Font/Moderniz.otf') format('opentype'),
-       url('./Font/Moderniz.otf') format('opentype'),
-       url('/font/Moderniz.otf') format('opentype');
+  src: local('Plus Jakarta Sans');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -91,13 +67,13 @@
 
 @theme {
   --font-jakarta: "Plus Jakarta Sans", "Inter", sans-serif;
-  --font-display: "Cranio", "Valonik", "Plus Jakarta Sans", sans-serif;
-  --font-valonik: "Valonik", "Playfair Display", serif;
-  --font-moderniz: "Moderniz", "Plus Jakarta Sans", sans-serif;
+  --font-display: "Cranio", "Playfair Display", serif;
+  --font-valonik: "Playfair Display", serif;
+  --font-moderniz: "Plus Jakarta Sans", sans-serif;
   --font-curvy: "Dancing Script", "Playfair Display", cursive;
   --font-serif: "Playfair Display", serif;
   --font-serif-italic: "Playfair Display", serif;
-  --font-comic: "Comic Helvetic", "Plus Jakarta Sans", sans-serif;
+  --font-comic: "Plus Jakarta Sans", "Comic Sans MS", sans-serif;
   --font-comicsans: "Comic Sans MS", "Comic Sans", cursive;
   --animate-marquee-left: marquee-left 40s linear infinite;
   --animate-marquee-right: marquee-right 40s linear infinite;
