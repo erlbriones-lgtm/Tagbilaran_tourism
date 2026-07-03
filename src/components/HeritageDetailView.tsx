@@ -41,21 +41,21 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
       />
       
       {/* Top ambient luxury lighting overlay */}
-      <div className="absolute top-0 inset-x-0 h-[400px] bg-gradient-to-b from-[#efe9d9]/30 to-transparent pointer-events-none z-0" />
+      <div className="absolute top-0 inset-x-0 h-100 bg-linear-to-b from-[#efe9d9]/30 to-transparent pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-6 sm:pt-10 lg:pt-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-20 sm:pt-10 lg:pt-12">
         
         {/* Step 1: Premium Cohesive Horizontal Navigation Bar */}
-        <div className="flex items-center justify-between border-b border-[#05461a]/10 pb-5 mb-6" id="detail-top-navigation-bar">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#05461a]/10 pb-5 mb-6" id="detail-top-navigation-bar">
           <button
             onClick={onBack}
-            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-[#05461a]/15 text-[#05461a] hover:bg-[#05461a]/5 hover:border-[#05461a]/30 transition-all font-jakarta text-[11px] font-black uppercase tracking-widest cursor-pointer active:scale-95 shadow-sm"
+            className="group inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2.5 px-4 py-3 rounded-xl bg-white border border-[#05461a]/15 text-[#05461a] hover:bg-[#05461a]/5 hover:border-[#05461a]/30 transition-all font-jakarta text-[11px] font-black uppercase tracking-widest cursor-pointer active:scale-95 shadow-sm relative z-20"
           >
             <ArrowLeft className="w-3.5 h-3.5 text-[#05461a] group-hover:-translate-x-1 transition-transform" /> 
             Back to Exploration
           </button>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2.5 self-start sm:self-auto">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-[#05461a]/10 text-[#05461a] border border-[#05461a]/25 rounded-full font-jakarta text-[10px] uppercase tracking-wider font-extrabold badge-tag-custom">
               <Compass className="w-3.5 h-3.5 text-[#05461a] animate-spin-slow" /> {heritage.category}
             </span>
@@ -74,11 +74,11 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
           </p>
 
           {/* Beautiful Green Ornamental Divider Asset */}
-          <div className="w-full max-w-[280px] sm:max-w-[400px] flex justify-center mt-2">
+          <div className="w-full max-w-70 sm:max-w-100 flex justify-center mt-2">
             <img 
               src="/FILLERS/divider2-1.png" 
               alt="Lace Divider" 
-              className="w-full h-auto max-h-[14px] opacity-92 object-contain"
+              className="w-full h-auto max-h-3.5 opacity-92 object-contain"
               referrerPolicy="no-referrer"
               loading="lazy"
             />
@@ -92,15 +92,15 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
           <div className="lg:col-span-7 flex flex-col gap-6" id="exhibition-visual-archives">
             
             {/* The Luxury Classical Wooden Scrapbook Frame */}
-            <div className="relative p-3 sm:p-4 rounded-none bg-gradient-to-br from-[#4e2f17] via-[#241308] to-[#391e0a] shadow-[inset_1.5px_1.5px_3px_rgba(255,255,255,0.2),inset_-1.5px_-1.5px_3px_rgba(0,0,0,0.75),6px_8px_24px_rgba(0,0,0,0.35)] border border-[#140a04] w-full">
+            <div className="relative p-3 sm:p-4 rounded-none bg-linear-to-br from-[#4e2f17] via-[#241308] to-[#391e0a] shadow-[inset_1.5px_1.5px_3px_rgba(255,255,255,0.2),inset_-1.5px_-1.5px_3px_rgba(0,0,0,0.75),6px_8px_24px_rgba(0,0,0,0.35)] border border-[#140a04] w-full">
               {/* Gold/brass fillet inset inlay line */}
-              <div className="absolute inset-[3px] border border-[#bc923a]/30 pointer-events-none z-20" />
-              <div className="absolute inset-[4px] border border-[#bc923a]/15 pointer-events-none z-20" />
+              <div className="absolute inset-0.75 border border-[#bc923a]/30 pointer-events-none z-20" />
+              <div className="absolute inset-1 border border-[#bc923a]/15 pointer-events-none z-20" />
               
               {/* Antique natural mat board inner insert */}
               <div className="bg-[#f2e7c9] p-4 border border-[#140a04]/50 z-10 relative shadow-[inset_1px_1px_4px_rgba(0,0,0,0.35)] w-full">
                 {/* Image panel slot */}
-                <div className="relative h-[260px] sm:h-[420px] w-full overflow-hidden border border-[#241308]/40 flex items-center justify-center bg-[#170c05]/10">
+                <div className="relative h-65 sm:h-105 w-full overflow-hidden border border-[#241308]/40 flex items-center justify-center bg-[#170c05]/10">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={activeImage}
@@ -155,7 +155,7 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
             
             {/* Elegant GPS & Geography Anchor Board */}
             <div className="p-6 rounded-2xl bg-[#05461a]/5 border border-emerald-900/10 backdrop-blur-sm shadow-sm relative overflow-hidden" id="geographic-anchor-board">
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-[#bc923a]/10 to-transparent rounded-full blur-xl pointer-events-none" />
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-linear-to-br from-[#bc923a]/10 to-transparent rounded-full blur-xl pointer-events-none" />
               
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col text-left">
@@ -214,7 +214,7 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
               </div>
 
               {/* Portfolio Paper Text Content */}
-              <div className="p-6 sm:p-7 text-left min-h-[300px] flex flex-col justify-start">
+              <div className="p-6 sm:p-7 text-left min-h-75 flex flex-col justify-start">
                 
                 {activeTab === "history" && (
                   <div className="space-y-4.5 animate-fade-in font-sans">
