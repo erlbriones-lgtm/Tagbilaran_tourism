@@ -12,8 +12,40 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isMuted, setIsMuted] = useState(false);
+  const [shouldLoadHeroMedia, setShouldLoadHeroMedia] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
+
+    const enableMedia = () => {
+      if (!cancelled) {
+        setShouldLoadHeroMedia(true);
+      }
+    };
+
+    const timer = window.setTimeout(enableMedia, 250);
+    const onFirstInteraction = () => {
+      enableMedia();
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
+
+    window.addEventListener("pointerdown", onFirstInteraction, { once: true });
+    window.addEventListener("keydown", onFirstInteraction, { once: true });
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoadHeroMedia) {
+      return;
+    }
+
     const video = videoRef.current;
     const audio = audioRef.current;
     if (!video || !audio) {
@@ -27,7 +59,6 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
       video.play().catch(() => {
         // Muted video autoplay can still be blocked in some browsers.
       });
-      audio.loop = true;
       audio.muted = false;
       audio.volume = 0.65;
 
@@ -49,41 +80,7 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
       video.removeEventListener("canplay", startMedia);
       audio.removeEventListener("canplay", startMedia);
     };
-  }, []);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const audio = audioRef.current;
-    if (!video || !audio) {
-      return;
-    }
-
-    const startOnFirstInteraction = async () => {
-      audio.currentTime = video.currentTime;
-      video.loop = true;
-      audio.loop = true;
-      audio.muted = false;
-      audio.volume = 0.65;
-
-      video.play().catch(() => {
-        // Keep the video on the same timeline even if the browser blocks playback.
-      });
-
-      try {
-        await audio.play();
-      } catch {
-        // Browsers may still require a user gesture before audible playback.
-      }
-    };
-
-    window.addEventListener("pointerdown", startOnFirstInteraction, { once: true });
-    window.addEventListener("keydown", startOnFirstInteraction, { once: true });
-
-    return () => {
-      window.removeEventListener("pointerdown", startOnFirstInteraction);
-      window.removeEventListener("keydown", startOnFirstInteraction);
-    };
-  }, []);
+  }, [shouldLoadHeroMedia]);
 
   const handleAudioToggle = async () => {
     const audio = audioRef.current;
@@ -134,8 +131,12 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
           width={1920}
           height={1080}
         >
-          <source src="/webm/home.webm" type="video/webm" />
-          <source src="/webm/FINAL%20WEB%20VIDEO.mp4" type="video/mp4" />
+          {shouldLoadHeroMedia && (
+            <>
+              <source src="/webm/home.webm" type="video/webm" />
+              <source src="/webm/FINAL%20WEB%20VIDEO.mp4" type="video/mp4" />
+            </>
+          )}
         </video>
         {/* Soft edge gradients and atmospheric overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-[#152614]/50 via-transparent to-[#152614]/65 z-20 pointer-events-none" />
@@ -145,9 +146,11 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
         {/* Floating atmospheric sunbeam of color to enrich scene */}
         <div className="absolute top-1/4 right-[25%] w-96 h-96 rounded-full bg-[#FFD54F]/4 blur-[120px] mix-blend-screen pointer-events-none z-15" />
 
-        <audio ref={audioRef} autoPlay loop muted={isMuted} preload="auto">
-          <source src="/audio/FINAL%20WEB%20VIDEO.mp3" type="audio/mpeg" />
-        </audio>
+        {shouldLoadHeroMedia && (
+          <audio ref={audioRef} autoPlay loop muted={isMuted} preload="auto">
+            <source src="/audio/FINAL%20WEB%20VIDEO.mp3" type="audio/mpeg" />
+          </audio>
+        )}
 
         <button
           type="button"

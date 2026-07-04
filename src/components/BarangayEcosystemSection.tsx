@@ -102,6 +102,10 @@ export const BarangayEcosystemSection: React.FC<BarangayEcosystemSectionProps> =
                 alt={slide.caption}
                 className={`barangay-slide ${idx === activeIndex ? "active" : ""}`}
                 loading={idx === 0 ? "eager" : "lazy"}
+                decoding="async"
+                width={900}
+                height={600}
+                sizes="(max-width: 768px) 100vw, 680px"
                 referrerPolicy="no-referrer"
               />
             ))}

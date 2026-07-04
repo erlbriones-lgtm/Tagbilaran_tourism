@@ -624,8 +624,11 @@ export const TagbilaranDashboard: React.FC = () => {
                         src={barangayMaps[activeBarangay.name]} 
                         alt={`${activeBarangay.name} Geographic Map`} 
                         className="w-full max-h-[500px] md:max-h-[560px] object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-                        referrerPolicy="no-referrer"
-                      />
+                        referrerPolicy="no-referrer"                      loading="lazy"
+                      decoding="async"
+                      width={1200}
+                      height={800}
+                      sizes="(max-width: 768px) 100vw, 75vw"                      />
                     </div>
 
                     {/* Description */}
@@ -734,8 +737,11 @@ export const TagbilaranDashboard: React.FC = () => {
                             src={barangayLogos[otherBarangay.name] || "/B-LOGO/BOOL_Logo.webp"}
                             alt={`${otherBarangay.name} Logo`}
                             className="w-32 h-32 md:w-36 md:h-36 object-contain transition-all duration-500 scale-100 group-hover:scale-110"
-                            referrerPolicy="no-referrer"
-                          />
+                            referrerPolicy="no-referrer"                              loading="lazy"
+                              decoding="async"
+                              width={160}
+                              height={160}
+                              sizes="160px"                          />
                         </div>
 
                         {/* Lettering image (or text fallback) - centered at the bottom */}
@@ -749,6 +755,11 @@ export const TagbilaranDashboard: React.FC = () => {
                                 filter: "brightness-0 invert(1)" // clean bright white outline against dark green
                               }}
                               referrerPolicy="no-referrer"
+                              loading="lazy"
+                              decoding="async"
+                              width={240}
+                              height={48}
+                              sizes="(max-width: 768px) 80vw, 240px"
                             />
                           ) : (
                             <h4 className="font-black text-base md:text-lg text-white group-hover:text-[#FFD54F] transition-colors leading-tight tracking-wide uppercase">

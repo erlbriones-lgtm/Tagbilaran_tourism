@@ -90,6 +90,11 @@ const TimelineMilestone = React.memo(function TimelineMilestone({ milestone, isE
               src={milestone.images[0]}
               alt={`${milestone.year} archival reference 1`}
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
+              width={128}
+              height={128}
+              sizes="(max-width: 640px) 56px, (max-width: 1024px) 64px, 96px"
               className={`absolute z-0 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-26 lg:h-26 xl:w-32 xl:h-32 object-cover rounded-2xl shadow-xl border-2 border-white pointer-events-none select-none block left-2 top-2 ${
                 isEven 
                   ? "md:right-full md:left-auto md:mr-36" 
@@ -125,6 +130,11 @@ const TimelineMilestone = React.memo(function TimelineMilestone({ milestone, isE
               src={milestone.images[1]}
               alt={`${milestone.title} history record 1`}
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
+              width={128}
+              height={128}
+              sizes="(max-width: 640px) 56px, (max-width: 1024px) 64px, 96px"
               className={`absolute z-0 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-26 lg:h-26 xl:w-32 xl:h-32 object-cover rounded-xl sm:rounded-2xl shadow-xl border-2 border-white pointer-events-none select-none block right-2 top-2 ${
                 isEven 
                   ? "md:right-full md:left-auto md:mr-20" 
@@ -193,6 +203,11 @@ const TimelineMilestone = React.memo(function TimelineMilestone({ milestone, isE
             alt={`${milestone.title} timeline representation`}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             referrerPolicy="no-referrer"
+            loading="lazy"
+            decoding="async"
+            width={1200}
+            height={900}
+            sizes="(max-width: 768px) 100vw, 45vw"
           />
         </motion.div>
       </div>
