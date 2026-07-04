@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Sparkles, 
@@ -28,18 +28,19 @@ import {
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Downloadables from "./components/Downloadables";
-import HeritageMarquee from "./components/HeritageMarquee";
-import TagBeats from "./components/TagBeats";
-import HeritageDetailView from "./components/HeritageDetailView";
-import { TagbilaranDashboard } from "./components/TagbilaranDashboard";
-import Saulog from "./components/Saulog";
-import Travel from "./components/Travel";
 import Footer from "./components/Footer";
 import { HeritageEcosystemSection } from "./components/HeritageEcosystemSection";
 import { BarangayEcosystemSection } from "./components/BarangayEcosystemSection";
 import { SaulogEcosystemSection } from "./components/SaulogEcosystemSection";
 import FloatingContact from "./components/FloatingContact";
+
+const Downloadables = lazy(() => import("./components/Downloadables"));
+const HeritageMarquee = lazy(() => import("./components/HeritageMarquee"));
+const TagBeats = lazy(() => import("./components/TagBeats"));
+const HeritageDetailView = lazy(() => import("./components/HeritageDetailView"));
+const TagbilaranDashboard = lazy(() => import("./components/TagbilaranDashboard").then((m) => ({ default: m.TagbilaranDashboard })));
+const Saulog = lazy(() => import("./components/Saulog"));
+const Travel = lazy(() => import("./components/Travel"));
 
 import { tagbilaranLandmarks, tagbilaranBarangays } from "./data";
 import { detailedHeritageList } from "./data/heritageDetails";
@@ -458,13 +459,15 @@ export default function App() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            <HeritageDetailView 
-              heritage={detailedHeritageList.find(h => h.id === selectedDetailedHeritageId) || detailedHeritageList[0]}
-              onBack={() => {
-                setSelectedDetailedHeritageId(null);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            />
+            <Suspense fallback={<div className="min-h-screen bg-[#fbf9f4]" />}> 
+              <HeritageDetailView 
+                heritage={detailedHeritageList.find(h => h.id === selectedDetailedHeritageId) || detailedHeritageList[0]}
+                onBack={() => {
+                  setSelectedDetailedHeritageId(null);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              />
+            </Suspense>
           </motion.div>
         ) : activeView === "home" ? (
           <motion.div
@@ -513,10 +516,12 @@ export default function App() {
             className="pb-16 w-full flex flex-col items-center"
           >
             {/* DUAL INFINITE MARQUEE CAROUSEL SHOWCASE */}
-            <HeritageMarquee onCardClick={(id) => {
-              setSelectedDetailedHeritageId(id);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }} />
+            <Suspense fallback={<div className="w-full min-h-[40vh]" />}> 
+              <HeritageMarquee onCardClick={(id) => {
+                setSelectedDetailedHeritageId(id);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }} />
+            </Suspense>
 
             {/* HIGH-END INTERACTIVE TIMELINE PLACED DIRECTLY BELOW THE SLIDE DISPLAY */}
             <div className="w-full max-w-7xl mx-auto px-6 sm:px-12 mt-16 mb-16 sm:mb-20" id="chronology-timeline">
@@ -560,7 +565,9 @@ export default function App() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <TagBeats />
+            <Suspense fallback={<div className="min-h-screen" />}> 
+              <TagBeats />
+            </Suspense>
           </motion.div>
         ) : activeView === "downloadables" ? (
           <motion.div
@@ -570,7 +577,9 @@ export default function App() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <Downloadables />
+            <Suspense fallback={<div className="min-h-screen" />}> 
+              <Downloadables />
+            </Suspense>
           </motion.div>
         ) : activeView === "barangay" ? (
           <motion.div
@@ -582,7 +591,9 @@ export default function App() {
             className="bg-white text-[#05461a] pt-14 pb-0 w-full flex flex-col items-center select-none"
             id="barangay-view"
           >
-            <TagbilaranDashboard />
+            <Suspense fallback={<div className="min-h-screen" />}> 
+              <TagbilaranDashboard />
+            </Suspense>
           </motion.div>
         ) : activeView === "saulog" ? (
           <motion.div
@@ -592,7 +603,9 @@ export default function App() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <Saulog />
+            <Suspense fallback={<div className="min-h-screen" />}> 
+              <Saulog />
+            </Suspense>
           </motion.div>
         ) : activeView === "travel" ? (
           <motion.div
@@ -602,7 +615,9 @@ export default function App() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <Travel />
+            <Suspense fallback={<div className="min-h-screen" />}> 
+              <Travel />
+            </Suspense>
           </motion.div>
         ) : (
            /* LUXURIOUS ABOUT TAGBILARAN CITY VIEW */
@@ -776,7 +791,7 @@ export default function App() {
                 </div>
               </div>
 
-<div className="w-full max-w-7xl mx-auto px-6 sm:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 hidden" id="about-stats-grid">
+<div className="w-full max-w-7xl mx-auto px-6 sm:px-12 hidden" id="about-stats-grid">
                {[
                  { label: "FOUNDED (SANDUGO)", value: "1565", desc: "First treaty of international friendship", icon: Heart },
                  { label: "GLOBAL NOMINATION", value: "Crafts", desc: "Crafts & folk arts candidate network", icon: Award },

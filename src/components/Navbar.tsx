@@ -124,6 +124,10 @@ export default function Navbar({ activeView, setActiveView }: NavbarProps) {
                   onError={() => setLogoFailed(true)}
                   className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-110" 
                   referrerPolicy="no-referrer"
+                  loading="eager"
+                  decoding="async"
+                  width={72}
+                  height={72}
                 />
               ) : (
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/10 flex items-center justify-center border border-white/25 text-[#FFD54F] group-hover:scale-110 transition-transform duration-300 shadow-sm">
@@ -202,6 +206,10 @@ export default function Navbar({ activeView, setActiveView }: NavbarProps) {
                   onError={() => setLogoFailed(true)}
                   className="w-7 sm:w-8 h-7 sm:h-8 object-contain drop-shadow-md" 
                   referrerPolicy="no-referrer"
+                  loading="eager"
+                  decoding="async"
+                  width={64}
+                  height={64}
                 />
               ) : (
                 <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-lg bg-white/10 flex items-center justify-center border border-white/25 text-[#FFD54F]">

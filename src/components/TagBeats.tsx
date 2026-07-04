@@ -27,6 +27,9 @@ export default function TagBeats() {
             className="w-full object-fill sm:object-cover select-none shadow-2xl filter drop-shadow-[0_12px_36px_rgba(0,0,0,0.3)] mb-6 sm:mb-10"
             referrerPolicy="no-referrer"
             loading="lazy"
+            decoding="async"
+            width={1600}
+            height={900}
           />
 
           <motion.img 
@@ -38,6 +41,9 @@ export default function TagBeats() {
             className="max-h-[170px] sm:max-h-[210px] md:max-h-[265px] lg:max-h-[310px] max-w-[95%] object-contain select-none filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)] px-4 mb-4"
             referrerPolicy="no-referrer"
             loading="lazy"
+            decoding="async"
+            width={800}
+            height={320}
           />
         </div>
       </section>

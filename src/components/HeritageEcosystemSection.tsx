@@ -123,6 +123,9 @@ export const HeritageEcosystemSection: React.FC<HeritageEcosystemSectionProps> =
                   alt={slide.caption}
                   className={`heritage-slide ${idx === activeIndex ? "active" : ""}`}
                   loading={idx === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  width={1200}
+                  height={675}
                   referrerPolicy="no-referrer"
                 />
               ))}

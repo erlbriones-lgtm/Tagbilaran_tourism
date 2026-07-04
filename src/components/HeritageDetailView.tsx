@@ -81,6 +81,9 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
               className="w-full h-auto max-h-3.5 opacity-92 object-contain"
               referrerPolicy="no-referrer"
               loading="lazy"
+              decoding="async"
+              width={800}
+              height={28}
             />
           </div>
         </div>
@@ -112,6 +115,10 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
                       transition={{ duration: 0.35 }}
                       className="w-full h-full object-cover filter contrast-[1.03]"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
+                      width={1200}
+                      height={800}
                     />
                   </AnimatePresence>
                   
@@ -137,7 +144,7 @@ export default function HeritageDetailView({ heritage, onBack }: HeritageDetailV
                         : "border-stone-200/80 opacity-70 hover:opacity-100 hover:border-stone-400"
                     }`}
                   >
-                    <img src={img} alt={`Angle angle ${idx + 1}`} className="w-full h-full object-cover transition-transform group-hover:scale-105" referrerPolicy="no-referrer" loading="lazy" />
+                    <img src={img} alt={`Angle angle ${idx + 1}`} className="w-full h-full object-cover transition-transform group-hover:scale-105" referrerPolicy="no-referrer" loading="lazy" decoding="async" width={96} height={96} />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
                     {activeImage === img && (
                       <div className="absolute bottom-1 right-1 bg-[#05461a] text-white p-0.5 rounded-full">

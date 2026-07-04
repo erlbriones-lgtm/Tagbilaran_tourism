@@ -96,6 +96,9 @@ export default function Travel() {
                     className="w-full h-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.045]"
                     referrerPolicy="no-referrer"
                     loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={900}
                   />
                   <div className="absolute inset-0 bg-[#006400]/5" />
                 </div>

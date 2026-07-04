@@ -156,6 +156,9 @@ export default function Saulog() {
             id="saulog-full-bg-image"
             referrerPolicy="no-referrer"
             loading="lazy"
+            decoding="async"
+            width={1600}
+            height={900}
           />
         </div>
 
@@ -166,6 +169,9 @@ export default function Saulog() {
           id="saulog-bottom-separator"
           referrerPolicy="no-referrer"
           loading="lazy"
+          decoding="async"
+          width={1600}
+          height={32}
         />
       </div>
 

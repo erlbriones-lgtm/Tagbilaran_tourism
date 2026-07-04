@@ -129,8 +129,10 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           poster="/webp/Blood Compact Shrine (31).webp"
+          width={1920}
+          height={1080}
         >
           <source src="/webm/home.webm" type="video/webm" />
           <source src="/webm/FINAL%20WEB%20VIDEO.mp4" type="video/mp4" />
@@ -168,7 +170,11 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
         className="absolute -bottom-0.5 left-0 w-full overflow-hidden pointer-events-none z-32 h-2.75 sm:h-4 md:h-5.25 lg:h-7 object-fill select-none"
         id="hero-bottom-artwork-separator"
         referrerPolicy="no-referrer"
-        loading="lazy"
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        width={1600}
+        height={64}
       />
 
       {/* FOREGROUND MAIN TEXT CONTENT - Center-aligned and full width on ultra wide displays */}
@@ -182,7 +188,7 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
           style={{ fontFamily: "'Cranio', sans-serif" }}
           id="hero-main-headline"
         >
-          <span className="inline-block transform scale-y-[1.15] origin-center text-center w-full">
+          <span className="inline-block transform scale-y-[1] origin-center text-center w-full">
             TAGBILARAN
           </span>
         </motion.h1>
@@ -195,7 +201,7 @@ export default function Hero({ onSwitchToHeritage, weatherDescription, temperatu
           className="font-moderniz text-xs sm:text-sm md:text-base font-semibold tracking-widest text-[#32e875] max-w-4xl mx-auto mt-3 filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.98)] text-center block w-full uppercase"
           id="hero-subtitle"
         >
-          WHERE HISTORY MEETS PEACE AND FRIENDSHIP
+          THE CITY OF PEACE AND FRIENDSHIP
         </motion.p>
       </div>
     </section>

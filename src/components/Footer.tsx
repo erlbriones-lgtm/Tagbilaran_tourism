@@ -18,6 +18,9 @@ export default function Footer({ setActiveView }: FooterProps) {
           className="w-full h-5 md:h-6 object-fill"
           referrerPolicy="no-referrer"
           loading="lazy"
+          decoding="async"
+          width={1600}
+          height={48}
         />
       </div>
 
@@ -35,6 +38,9 @@ export default function Footer({ setActiveView }: FooterProps) {
                 className="h-[44px] w-auto object-contain filter brightness-110"
                 referrerPolicy="no-referrer" 
                 loading="lazy"
+                decoding="async"
+                width={176}
+                height={44}
               />
               <img 
                 src="/FILLERS/TAGB-CTO.png" 
@@ -42,6 +48,9 @@ export default function Footer({ setActiveView }: FooterProps) {
                 className="h-[48px] w-auto object-contain"
                 referrerPolicy="no-referrer" 
                 loading="lazy"
+                decoding="async"
+                width={192}
+                height={48}
               />
               <img 
                 src="/FILLERS/Department_of_Tourism_(DOT).svg.png" 
@@ -49,6 +58,9 @@ export default function Footer({ setActiveView }: FooterProps) {
                 className="h-[40px] w-auto object-contain"
                 referrerPolicy="no-referrer" 
                 loading="lazy"
+                decoding="async"
+                width={160}
+                height={40}
               />
               <img 
                 src="/FILLERS/BeholdBohol.png" 
@@ -56,6 +68,9 @@ export default function Footer({ setActiveView }: FooterProps) {
                 className="h-[52px] w-auto object-contain"
                 referrerPolicy="no-referrer" 
                 loading="lazy"
+                decoding="async"
+                width={208}
+                height={52}
               />
             </div>
 

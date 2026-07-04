@@ -76,7 +76,6 @@ copyFolderSync(path.join(process.cwd(), "BARANGAY LETTERING"), path.join(process
 copyFolderSync(path.join(process.cwd(), "B-LOGO"), path.join(process.cwd(), "public", "B-LOGO"));
 copyFolderSync(path.join(process.cwd(), "B-LETTER"), path.join(process.cwd(), "public", "B-LETTER"));
 copyFolderSync(path.join(process.cwd(), "Map Barangay"), path.join(process.cwd(), "public", "Map Barangay"));
-copyFolderSync(path.join(process.cwd(), "TemporaryPictures"), path.join(process.cwd(), "public", "TemporaryPictures"));
 
 // Robust inline task execution to auto-repair formatting variations in App.tsx
 try {
